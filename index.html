@@ -3,15 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Jayadev Billa, PhD — Independent ML researcher working on representation geometry, interpretability, and multimodal systems.">
+  <meta name="description" content="Jayadev Billa, PhD — independent ML researcher.">
   <meta property="og:title" content="Jayadev Billa, PhD">
-  <meta property="og:description" content="Independent ML researcher — representation geometry, interpretability, and multimodal systems.">
+  <meta property="og:description" content="Independent ML researcher — speech, audio-language models, representation geometry.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://jbilla.com">
-  <meta property="og:image" content="https://jbilla.com/og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta name="twitter:card" content="summary_large_image">
   <title>Jayadev Billa, PhD</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -26,12 +22,17 @@
     }
 
     :root {
-      --bg:       #fafafa;
-      --text:     #1a1a1a;
-      --muted:    #6b6b6b;
-      --accent:   #2a5db0;
-      --border:   #ddd;
-      --max-w:    700px;
+      --bg:          #fafafa;
+      --text:        #1a1a1a;
+      --muted:       #6b6b6b;
+      --accent:      #2a5db0;
+      --border:      #ddd;
+      --card-accent: #d6dff0;
+      --pill-wp-bg:  #e8ecf2;
+      --pill-wp-fg:  #4a5568;
+      --pill-pub-bg: #dceee6;
+      --pill-pub-fg: #2f6b55;
+      --max-w:       680px;
     }
 
     html {
@@ -44,9 +45,7 @@
       -webkit-text-size-adjust: 100%;
     }
 
-    body {
-      padding: 0 1.25rem;
-    }
+    body { padding: 0 1.25rem; }
 
     main {
       max-width: var(--max-w);
@@ -54,30 +53,45 @@
       padding: 3.5rem 0 4rem;
     }
 
-    /* ── Header ──────────────────────────────────────── */
+    /* ── Header ─────────────────────────────────── */
 
     header {
-      margin-bottom: 2.75rem;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
     }
 
     header h1 {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       font-weight: 600;
       letter-spacing: -0.01em;
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.3rem;
     }
 
     .tagline {
       color: var(--muted);
-      font-size: 0.97rem;
+      font-size: 0.92rem;
+      margin-bottom: 1.2rem;
     }
 
-    /* ── Section headings ────────────────────────────── */
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 1.2rem;
+      font-size: 0.82rem;
+    }
+
+    .contact-links a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .contact-links a:hover {
+      color: var(--accent);
+    }
+
+    /* ── Sections ────────────────────────────────── */
 
     section {
-      margin-bottom: 3rem;
+      margin-bottom: 2.75rem;
     }
 
     h2 {
@@ -86,39 +100,37 @@
       letter-spacing: 0.09em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 1.4rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 1px solid var(--border);
     }
 
-    /* ── About ───────────────────────────────────────── */
+    /* ── About ───────────────────────────────────── */
 
     #about p {
-      font-size: 1rem;
+      font-size: 0.95rem;
       line-height: 1.7;
+      color: #333;
     }
 
-    /* ── Papers ──────────────────────────────────────── */
+    /* ── Papers ──────────────────────────────────── */
 
     .paper-list {
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      gap: 1.5rem;
     }
 
     article.paper {
-      padding-bottom: 2rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    article.paper:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
+      padding: 0 0 0 0.85rem;
+      border-left: 2px solid var(--card-accent);
     }
 
     article.paper h3 {
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 600;
-      line-height: 1.4;
-      margin-bottom: 0.45rem;
+      line-height: 1.5;
+      margin-bottom: 0.35rem;
     }
 
     article.paper h3 a {
@@ -134,23 +146,19 @@
     }
 
     article.paper .description {
-      font-size: 0.93rem;
-      color: #333;
+      font-size: 0.87rem;
+      color: var(--muted);
       line-height: 1.6;
-      margin-bottom: 0.65rem;
+      margin-bottom: 0.5rem;
     }
 
     article.paper .meta {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--muted);
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 0.5rem;
-    }
-
-    .venue {
-      /* plain text, no decoration */
+      gap: 0.45rem;
     }
 
     .meta-sep {
@@ -163,8 +171,8 @@
       text-decoration: none;
       border: 1px solid currentColor;
       border-radius: 3px;
-      padding: 1px 6px;
-      font-size: 0.75rem;
+      padding: 1px 7px;
+      font-size: 0.72rem;
       white-space: nowrap;
     }
 
@@ -173,51 +181,91 @@
       color: var(--bg);
     }
 
-    /* "Demo coming soon" — muted, italic, cursor signals non-live */
-    article.paper .meta a.demo-coming {
-      color: var(--muted);
-      border-color: var(--border);
-      font-style: italic;
-      cursor: default;
-      pointer-events: none; /* remove to make it a real link when ready */
+    /* ── Status pills ────────────────────────────── */
+
+    .pill {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      padding: 1px 8px;
+      border-radius: 10px;
+      line-height: 1.5;
+      white-space: nowrap;
+      vertical-align: middle;
     }
 
-    /* ── Research Themes ─────────────────────────────── */
+    .pill-working {
+      background: var(--pill-wp-bg);
+      color: var(--pill-wp-fg);
+    }
+
+    .pill-published {
+      background: var(--pill-pub-bg);
+      color: var(--pill-pub-fg);
+    }
+
+    /* ── Blog ────────────────────────────────────── */
+
+    #blog .placeholder {
+      color: var(--muted);
+      font-style: italic;
+      font-size: 0.9rem;
+    }
+
+    /* ── Research Themes ─────────────────────────── */
 
     .themes {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.55rem;
+      gap: 0.6rem;
     }
 
     .themes li {
-      font-size: 0.95rem;
-      padding-left: 1.1rem;
+      font-size: 0.9rem;
+      padding-left: 1rem;
       position: relative;
-      color: #333;
+      color: #444;
+      line-height: 1.6;
     }
 
     .themes li::before {
-      content: "—";
+      content: "–";
       position: absolute;
       left: 0;
       color: var(--muted);
     }
 
-    /* ── Contact / Footer ────────────────────────────── */
+    .themes li em {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* ── Collaboration ───────────────────────────── */
+
+    #collab p {
+      font-size: 0.9rem;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    #collab a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    #collab a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── Footer ──────────────────────────────────── */
 
     footer {
       padding-top: 2rem;
       border-top: 1px solid var(--border);
-      font-size: 0.88rem;
+      font-size: 0.82rem;
       color: var(--muted);
-    }
-
-    footer .contact-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.3rem 1.4rem;
     }
 
     footer a {
@@ -229,26 +277,16 @@
       text-decoration: underline;
     }
 
-    /* ── Global link fallback ────────────────────────── */
+    /* ── Global ──────────────────────────────────── */
 
-    a {
-      color: var(--accent);
-    }
+    a { color: var(--accent); }
 
-    /* ── Responsive ──────────────────────────────────── */
+    /* ── Responsive ──────────────────────────────── */
 
     @media (max-width: 480px) {
-      html {
-        font-size: 16px;
-      }
-
-      main {
-        padding: 2.5rem 0 3rem;
-      }
-
-      header h1 {
-        font-size: 1.35rem;
-      }
+      html { font-size: 16px; }
+      main { padding: 2.5rem 0 3rem; }
+      header h1 { font-size: 1.3rem; }
     }
   </style>
 </head>
@@ -257,42 +295,54 @@
 
     <header>
       <h1>Jayadev Billa, PhD</h1>
-      <p class="tagline">Independent ML researcher — representation geometry, interpretability, and multimodal systems.</p>
+      <p class="tagline">Independent ML researcher.</p>
+      <div class="contact-links">
+        <a href="mailto:jbilla2004@gmail.com">jbilla2004@gmail.com</a>
+        <a target="_blank" rel="noopener" href="https://scholar.google.com/citations?user=finxo0AAAAAJ&hl=en">Google Scholar</a>
+        <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/jayadev-billa/">LinkedIn</a>
+        <a target="_blank" rel="noopener" href="https://github.com/jb1999">GitHub</a>
+      </div>
     </header>
 
     <section id="about">
       <p>
-        Independent researcher working on the geometry and dynamics of learned representations in
-        multimodal and language models. Recent work includes information-theoretic analysis of modality
-        collapse in audio-language models, mechanistic evidence that speech LLMs often reduce to
-        implicit ASR→LLM cascades, and metrics that predict where linear interpretability tools succeed
-        or fail. Prior: co-founder and Chief Scientist at Speechlab (on-demand and real-time speech-to-speech
-        translation), Senior Computer Scientist at USC ISI, and senior roles at Yahoo, Nuance, and BBN.
+      Recent work on audio-language models: how they internally process audio and when they behave like ASR→LLM cascades. I'm also extending into representation geometry, interpretability, and safety — exploring how representations form and reorganize during training, and when linear interpretability methods can be expected to work. Working papers on arXiv.
       </p>
     </section>
 
     <section id="work">
-      <h2>Recent Work</h2>
+      <h2>Research Papers</h2>
 
       <div class="paper-list">
 
         <article class="paper">
-          <h3><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2602.23136">Modality Collapse as Mismatched Decoding: Information-Theoretic Limits of Multimodal LLMs</a></h3>
+          <h3>
+            <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2602.23136">Modality Collapse as Mismatched Decoding: Information-Theoretic Limits of Multimodal LLMs</a>
+          </h3>
           <p class="description">Formalizes modality collapse in multimodal LLMs as a mismatched-decoder problem; information-theoretic bound shows accessible information is limited by decoder sensitivity and distributional mismatch.</p>
           <p class="meta">
+            <span class="pill pill-working">working paper</span>
             <a target="_blank" rel="noopener" href="https://github.com/jb1999/modality_collapse_paper">Code</a>
           </p>
         </article>
 
         <article class="paper">
-          <h3><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2602.17598">The Cascade Equivalence Hypothesis: When Do Speech LLMs Behave Like ASR→LLM Pipelines?</a></h3>
+          <h3>
+            <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2602.17598">The Cascade Equivalence Hypothesis: When Do Speech LLMs Behave Like ASR→LLM Pipelines?</a>
+          </h3>
           <p class="description">Shows that speech LLMs often reduce to implicit ASR→LLM cascades, with mechanistic evidence (logit lens, concept erasure) that text representations are causally required for task performance.</p>
+          <p class="meta">
+            <span class="pill pill-working">working paper</span>
+          </p>
         </article>
 
         <article class="paper">
-          <h3><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2604.15557">Predicting Where Steering Vectors Succeed</a></h3>
+          <h3>
+            <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2604.15557">Predicting Where Steering Vectors Succeed</a>
+          </h3>
           <p class="description">Introduces a structured family of local-linearity metrics that predict where linear interpretability tools succeed and how they fail.</p>
           <p class="meta">
+            <span class="pill pill-working">working paper</span>
             <a target="_blank" rel="noopener" href="https://github.com/jb1999/lap-steering-paper">Code</a>
             <span class="meta-sep">·</span>
             <a target="_blank" rel="noopener" href="https://huggingface.co/spaces/jb1999/lap-steering-demo">Demo</a>
@@ -300,17 +350,23 @@
         </article>
 
         <article class="paper">
-          <h3><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2602.15997">The Geometric Anatomy of Capability Acquisition in Transformers</a></h3>
+          <h3>
+            <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2602.15997">The Geometric Anatomy of Capability Acquisition in Transformers</a>
+          </h3>
           <p class="description">Controlled studies of representation geometry during training, revealing task-specific collapse floors, top-down layer reorganization, and RankMe as a precursor to capability acquisition.</p>
           <p class="meta">
+            <span class="pill pill-working">working paper</span>
             <a target="_blank" rel="noopener" href="https://github.com/jb1999/capability-acquisition-paper">Code</a>
           </p>
         </article>
 
         <article class="paper">
-          <h3><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2602.11488">When Audio-LLMs Don't Listen: A Cross-Linguistic Study of Modality Arbitration</a></h3>
+          <h3>
+            <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2602.11488">When Audio-LLMs Don't Listen: A Cross-Linguistic Study of Modality Arbitration</a>
+          </h3>
           <p class="description">Dataset and evaluation showing that audio-LLMs systematically follow conflicting text over spoken audio across 8 languages, even under explicit instructions to follow the audio.</p>
           <p class="meta">
+            <span class="pill pill-working">working paper</span>
             <a target="_blank" rel="noopener" href="https://github.com/jb1999/alme-benchmark">Code</a>
             <span class="meta-sep">·</span>
             <a target="_blank" rel="noopener" href="https://huggingface.co/spaces/jb1999/alme-demo">Demo</a>
@@ -318,41 +374,54 @@
         </article>
 
         <article class="paper">
-          <h3><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2604.17177">Decomposing the Depth Profile of Fine-Tuning</a></h3>
+          <h3>
+            <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2604.17177">Decomposing the Depth Profile of Fine-Tuning</a>
+          </h3>
           <p class="description">Layer-wise decomposition of how fine-tuning distributes across transformer depth, with implications for parameter-efficient adaptation.</p>
           <p class="meta">
+            <span class="pill pill-working">working paper</span>
             <a target="_blank" rel="noopener" href="https://github.com/jb1999/ft-depth-profile-paper">Code</a>
           </p>
         </article>
 
         <article class="paper">
-          <h3><a target="_blank" rel="noopener" href="https://www.isca-archive.org/interspeech_2021/billa21_interspeech.html">Leveraging Non-Target Language Resources to Improve ASR Performance in a Target Language</a></h3>
+          <h3>
+            <a target="_blank" rel="noopener" href="https://www.isca-archive.org/interspeech_2021/billa21_interspeech.html">Leveraging Non-Target Language Resources to Improve ASR Performance in a Target Language</a>
+          </h3>
           <p class="description">Cross-lingual transfer methods for improving ASR in low-resource languages using non-target language data.</p>
           <p class="meta">
-            <span class="venue">Interspeech 2021</span>
+            <span class="pill pill-published">published</span>
+            <span>Interspeech 2021</span>
           </p>
         </article>
 
       </div>
     </section>
 
+    <section id="blog">
+      <h2>Blog Posts</h2>
+      <p class="placeholder">Coming soon.</p>
+    </section>
+
     <section id="themes">
       <h2>Research Themes</h2>
       <ul class="themes">
-        <li>Representation geometry — how learned representations form, collapse, and reorganize during training.</li>
-        <li>Multimodal LLM limitations — architectural and information-theoretic constraints on non-text processing.</li>
-        <li>Interpretability tool prediction — structured metrics for when linear methods succeed or fail.</li>
-        <li>Speech and multimodal systems — production experience across 11+ languages.</li>
+        <li>Speech LLM internals — how speech models process and represent audio, and when they reduce to implicit cascades.</li>
+        <li>Audio-language model limitations — modality collapse, text dominance, and information-theoretic constraints on non-text processing.</li>
+        <li>Representation geometry — how learned representations form, collapse, and reorganize during training. <em>(Extending from fine-tuning dynamics work in speech and language models.)</em></li>
+        <li>Interpretability and safety — structured metrics for when linear methods succeed or fail, and implications for reliable model steering.</li>
       </ul>
     </section>
 
-    <footer id="contact">
-      <div class="contact-links">
-        <a href="mailto:jbilla2004@gmail.com">jbilla2004@gmail.com</a>
-        <a target="_blank" rel="noopener" href="https://scholar.google.com/citations?user=finxo0AAAAAJ&hl=en">Google Scholar</a>
-        <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/jayadev-billa/">LinkedIn</a>
-        <a target="_blank" rel="noopener" href="https://github.com/jb1999">GitHub</a>
-      </div>
+    <section id="collab">
+      <h2>Collaboration</h2>
+      <p>
+        Open to collaborations across any of these areas. If something overlaps with your work,
+        <a href="mailto:jbilla2004@gmail.com">drop me a line</a>.
+      </p>
+    </section>
+
+    <footer>
     </footer>
 
   </main>
